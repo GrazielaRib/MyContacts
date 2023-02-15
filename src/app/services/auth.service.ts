@@ -1,3 +1,4 @@
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NotificationService } from './notification.service';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -5,6 +6,7 @@ import { Observable, from, EMPTY } from 'rxjs';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { User } from '../models/user';
 import { catchError } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +15,24 @@ export class AuthService {
 
   constructor(
     private firebaseAuth: AngularFireAuth,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private AngularFirestore: AngularFirestore,
   ) { }
 
-
+  // Método para autenticar via Google
   public authenticateByGoogle(): Observable<any> {
     const provider = new GoogleAuthProvider();
+    // Autenticar retorna uma promise
     const promise = this.firebaseAuth.signInWithPopup(provider);
+    // Converter a promise em um observable
     return from(promise).pipe(
-        catchError(error => {
+      // Operador para tratamento de Erros
+      catchError(error => {
+        // Respota para usuário
         this.notification.showMessage("Erro ao autenticar com Google.");
+        // Reposta para o dev
         console.error(error);
+        // retorno vazio
         return EMPTY;
       })
     );

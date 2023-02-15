@@ -16,30 +16,50 @@
                 <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.nome}} </td>
             </ng-container>
 
+            <ng-container matColumnDef="endereco">
+                <th mat-header-cell *matHeaderCellDef> Endereço</th>
+                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.endereco}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cidade">
+                <th mat-header-cell *matHeaderCellDef> Cidade </th>
+                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.cidade}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="estado">
+                <th mat-header-cell *matHeaderCellDef> Estado </th>
+                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.estado}} </td>
+            </ng-container>
+
             <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                <th mat-header-cell *matHeaderCellDef> Email </th>
                 <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.email}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="cpf">
-                <th mat-header-cell *matHeaderCellDef> CPF </th>
-                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.cpf}} </td>
+            <ng-container matColumnDef="telefone">
+              <th mat-header-cell *matHeaderCellDef> Telefone </th>
+              <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.telefone}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="cargo">
-                <th mat-header-cell *matHeaderCellDef> Cargo </th>
-                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.cargo}} </td>
+            <ng-container matColumnDef="grupo">
+              <th mat-header-cell *matHeaderCellDef> Grupo </th>
+              <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.grupo}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="setor">
-                <th mat-header-cell *matHeaderCellDef> Setor </th>
-                <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.setor}} </td>
+            <ng-container matColumnDef="descricao">
+              <th mat-header-cell *matHeaderCellDef> Descricao </th>
+              <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.descricao}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data">
+              <th mat-header-cell *matHeaderCellDef> Data </th>
+              <td mat-cell *matCellDef="let mycontacts"> {{mycontacts.data}} </td>
             </ng-container>
 
             <ng-container matColumnDef="excluir">
                 <th mat-header-cell *matHeaderCellDef> Excluir </th>
                 <td mat-cell *matCellDef="let mycontacts">
-                    <button mat-icon-button (click)="deletemycontacts(mycontacts.id)">
+                    <button mat-icon-button (click)="deleteMycontacts(mycontacts.id)">
                         <i class="material-icons">delete</i>
                     </button>
                 </td>
