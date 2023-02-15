@@ -4,11 +4,20 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+@Component({
+  selector: 'toolbar-basic-example',
+  templateUrl: 'toolbar-basic-example.html',
+  styleUrls: ['toolbar-basic-example.css'],
+})
+
+
 export class HeaderComponent implements OnInit {
 
   constructor(

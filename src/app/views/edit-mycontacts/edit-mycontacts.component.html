@@ -1,56 +1,51 @@
 <app-header></app-header>
 <div class="container">
-    <h1>Novo contato</h1>
-    <form [formGroup]="formMycontacts">
+    <h1>Editar Contatos</h1>
+    <form #formEdit="ngForm">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Nome</mat-label>
-            <input type="text" matInput placeholder="Nome" formControlName="nome">
+            <input type="text" matInput placeholder="Nome" name="nome" [(ngModel)]="mycontacts.nome" required>
         </mat-form-field>
 
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Endereço</mat-label>
-                <input type="text" matInput placeholder="Endereco" formControlName="endereco">
+                <mat-label>Endereco</mat-label>
+                <input type="text" matInput placeholder="Endereco" name="endereco" [(ngModel)]="mycontacts.endereco" required>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Cidade</mat-label>
-                <input type="text" matInput placeholder="Cidade" formControlName="cidade">
+                <input type="text" matInput placeholder="Cidade" name="cidade" [(ngModel)]="mycontacts.cidade" required>
             </mat-form-field>
         </div>
 
         <div class="double-width">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Estado</mat-label>
-                <input type="text" matInput placeholder="Estado" formControlName="estado">
-            </mat-form-field>
-
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email" formControlName="email">
+                <input type="email" matInput placeholder="Email" name="email" [(ngModel)]="mycontacts.email" required>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input type="number" matInput placeholder="Telefone" name="telefone" [(ngModel)]="mycontacts.telefone" required>
             </mat-form-field>
         </div>
 
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Telefone</mat-label>
-                <input type="number" matInput placeholder="Telefone" formControlName="telefone">
+                <mat-label>Grupo</mat-label>
+                <input type="text" matInput placeholder="Grupo" name="grupo" [(ngModel)]="mycontacts.grupo" required>
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Grupo</mat-label>
-                <input type="text" matInput placeholder="Grupo" formControlName="grupo">
+                <mat-label>Descrição</mat-label>
+                <input type="text" matInput placeholder="Descricao" name="descricao" [(ngModel)]="mycontacts.descricao" required>
             </mat-form-field>
         </div>
-
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Descrição</mat-label>
-            <input type="text" matInput placeholder="Descricao" formControlName="descrição">
-        </mat-form-field>
 
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Data</mat-label>
-            <input type="date" matInput placeholder="Data" formControlName="data">
+            <input type="date" matInput placeholder="Data" name="data" [(ngModel)]="mycontacts.data" required min="0">
         </mat-form-field>
 
         <label for="foto">Selecione uma foto</label>
@@ -58,7 +53,7 @@
         <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
 
         <div class="double-width">
-            <button class="full-width btn-submit" mat-raised-button (click)="createmycontacts()">Cadastrar</button>
+            <button class="full-width btn-submit" mat-raised-button (click)="updateMycontacts(formEdit)">Editar</button>
             <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a>
         </div>
     </form>
